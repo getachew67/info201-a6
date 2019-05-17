@@ -1,0 +1,38 @@
+---
+title: "A6 Who Represents You?"
+author: "Ryan Leung"
+date: "May 13, 2019"
+output: html_document
+---
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+# Sets address and source files
+source("api-keys.R")
+source("civic-info.R")
+source("propublica.R")
+```
+#Introduction
+This report provides information on current **Oregon state** representatives, it also describes the  
+gender ratio of current Oregon politicians as well as the ratio between **Democratic** vs   **Republican**. For this report I used my home address back in Oregon. My address is `r my_address`.  
+The following are the **api** links:  
+- [Google Civics Info](`r civic_uri`)  
+- [Propublica](`r end_point_pub`)
+
+#Table of Political Representatives
+```{r table, echo = FALSE}
+kable(or_rep_v5, col.names = c("Name", "Position", "Party", "Email", "Phone", "Photo"))
+```
+
+#Representatives by **Gender** in Oregon
+```{r gender plot, echo = FALSE}
+gender_plot
+```
+
+#Representatives by **Party** in Oregon
+```{r party plot, echo = FALSE}
+party_plot
+```
+
+#**Suzanne Bonamici**, Oregon Representative
+Suzanne Bonamici is a representative for Oregon. She is **`r rep_age`** years old, and her _Twitter_ is  
+[`r username`](`r twitter`). Suzanne agrees with **`r vote_percent`%** of votes.
