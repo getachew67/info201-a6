@@ -28,7 +28,11 @@ gender_plot <- ggplot(gender_stats) +
   geom_col(mapping = aes(
     x = gender,
     y = n
-  ))
+  )) + coord_flip() +
+  labs(
+    y = "Number of Representatives",
+    x = "Gender"
+  )
 
 #party plot
 party_stats <- flat_pub %>%
@@ -39,7 +43,12 @@ party_plot <- ggplot(party_stats) +
   geom_col(mapping = aes(
     x = party,
     y = n
-  ))
+  )) +
+  coord_flip() +
+  labs(
+    y = "Representatives by Party",
+    x = "Party"
+  )
 
 #Last section
 my_rep_uri <- paste0(base_pub, end_comp_pub, "/B001278.json")
